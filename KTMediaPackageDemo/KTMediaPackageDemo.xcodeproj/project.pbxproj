@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		683CE4711C28FB8500F84399 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE4701C28FB8500F84399 /* main.m */; };
+		683CE4741C28FB8500F84399 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE4731C28FB8500F84399 /* AppDelegate.m */; };
+		683CE4771C28FB8500F84399 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE4761C28FB8500F84399 /* ViewController.m */; };
+		683CE47A1C28FB8500F84399 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 683CE4781C28FB8500F84399 /* Main.storyboard */; };
+		683CE47C1C28FB8500F84399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 683CE47B1C28FB8500F84399 /* Assets.xcassets */; };
+		683CE47F1C28FB8500F84399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 683CE47D1C28FB8500F84399 /* LaunchScreen.storyboard */; };
+		683CE48D1C28FCA900F84399 /* KTQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		683CE46C1C28FB8500F84399 /* KTMediaPackageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTMediaPackageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		683CE4701C28FB8500F84399 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		683CE4721C28FB8500F84399 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		683CE4731C28FB8500F84399 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		683CE4751C28FB8500F84399 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		683CE4761C28FB8500F84399 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		683CE4791C28FB8500F84399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		683CE47B1C28FB8500F84399 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		683CE47E1C28FB8500F84399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		683CE4801C28FB8500F84399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		683CE48B1C28FCA900F84399 /* KTQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTQRCodeViewController.h; sourceTree = "<group>"; };
+		683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTQRCodeViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		683CE4691C28FB8500F84399 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		683CE4631C28FB8500F84399 = {
+			isa = PBXGroup;
+			children = (
+				683CE46E1C28FB8500F84399 /* KTMediaPackageDemo */,
+				683CE46D1C28FB8500F84399 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		683CE46D1C28FB8500F84399 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				683CE46C1C28FB8500F84399 /* KTMediaPackageDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		683CE46E1C28FB8500F84399 /* KTMediaPackageDemo */ = {
+			isa = PBXGroup;
+			children = (
+				683CE4861C28FB9B00F84399 /* KTMediaPackage */,
+				683CE46F1C28FB8500F84399 /* Supporting Files */,
+				683CE4781C28FB8500F84399 /* Main.storyboard */,
+				683CE4751C28FB8500F84399 /* ViewController.h */,
+				683CE4761C28FB8500F84399 /* ViewController.m */,
+			);
+			path = KTMediaPackageDemo;
+			sourceTree = "<group>";
+		};
+		683CE46F1C28FB8500F84399 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				683CE4721C28FB8500F84399 /* AppDelegate.h */,
+				683CE4731C28FB8500F84399 /* AppDelegate.m */,
+				683CE47B1C28FB8500F84399 /* Assets.xcassets */,
+				683CE4801C28FB8500F84399 /* Info.plist */,
+				683CE47D1C28FB8500F84399 /* LaunchScreen.storyboard */,
+				683CE4701C28FB8500F84399 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		683CE4861C28FB9B00F84399 /* KTMediaPackage */ = {
+			isa = PBXGroup;
+			children = (
+				683CE48A1C28FBF200F84399 /* Image */,
+				683CE4881C28FBD900F84399 /* Video */,
+				683CE4891C28FBEA00F84399 /* Voice */,
+			);
+			path = KTMediaPackage;
+			sourceTree = "<group>";
+		};
+		683CE4871C28FBAB00F84399 /* QR Code */ = {
+			isa = PBXGroup;
+			children = (
+				683CE48B1C28FCA900F84399 /* KTQRCodeViewController.h */,
+				683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */,
+			);
+			path = "QR Code";
+			sourceTree = "<group>";
+		};
+		683CE4881C28FBD900F84399 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		683CE4891C28FBEA00F84399 /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Voice;
+			sourceTree = "<group>";
+		};
+		683CE48A1C28FBF200F84399 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				683CE4871C28FBAB00F84399 /* QR Code */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		683CE46B1C28FB8500F84399 /* KTMediaPackageDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 683CE4831C28FB8500F84399 /* Build configuration list for PBXNativeTarget "KTMediaPackageDemo" */;
+			buildPhases = (
+				683CE4681C28FB8500F84399 /* Sources */,
+				683CE4691C28FB8500F84399 /* Frameworks */,
+				683CE46A1C28FB8500F84399 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KTMediaPackageDemo;
+			productName = KTMediaPackageDemo;
+			productReference = 683CE46C1C28FB8500F84399 /* KTMediaPackageDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		683CE4641C28FB8500F84399 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = KT;
+				TargetAttributes = {
+					683CE46B1C28FB8500F84399 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 683CE4671C28FB8500F84399 /* Build configuration list for PBXProject "ktmediapackagedemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 683CE4631C28FB8500F84399;
+			productRefGroup = 683CE46D1C28FB8500F84399 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				683CE46B1C28FB8500F84399 /* KTMediaPackageDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		683CE46A1C28FB8500F84399 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				683CE47F1C28FB8500F84399 /* LaunchScreen.storyboard in Resources */,
+				683CE47C1C28FB8500F84399 /* Assets.xcassets in Resources */,
+				683CE47A1C28FB8500F84399 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		683CE4681C28FB8500F84399 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				683CE4771C28FB8500F84399 /* ViewController.m in Sources */,
+				683CE4741C28FB8500F84399 /* AppDelegate.m in Sources */,
+				683CE4711C28FB8500F84399 /* main.m in Sources */,
+				683CE48D1C28FCA900F84399 /* KTQRCodeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		683CE4781C28FB8500F84399 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				683CE4791C28FB8500F84399 /* Base */,
+			);
+			name = Main.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+		683CE47D1C28FB8500F84399 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				683CE47E1C28FB8500F84399 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		683CE4811C28FB8500F84399 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		683CE4821C28FB8500F84399 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		683CE4841C28FB8500F84399 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "KTMediaPackageDemo/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KT.WuHou.KTMediaPackageDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		683CE4851C28FB8500F84399 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "KTMediaPackageDemo/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KT.WuHou.KTMediaPackageDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		683CE4671C28FB8500F84399 /* Build configuration list for PBXProject "ktmediapackagedemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				683CE4811C28FB8500F84399 /* Debug */,
+				683CE4821C28FB8500F84399 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		683CE4831C28FB8500F84399 /* Build configuration list for PBXNativeTarget "KTMediaPackageDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				683CE4841C28FB8500F84399 /* Debug */,
+				683CE4851C28FB8500F84399 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 683CE4641C28FB8500F84399 /* Project object */;
+}
