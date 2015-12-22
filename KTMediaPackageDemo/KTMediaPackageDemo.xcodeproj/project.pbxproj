@@ -158,7 +158,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 683CE4671C28FB8500F84399 /* Build configuration list for PBXProject "ktmediapackagedemo" */;
+			buildConfigurationList = 683CE4671C28FB8500F84399 /* Build configuration list for PBXProject "KTMediaPackageDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -330,7 +330,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		683CE4671C28FB8500F84399 /* Build configuration list for PBXProject "ktmediapackagedemo" */ = {
+		683CE4671C28FB8500F84399 /* Build configuration list for PBXProject "KTMediaPackageDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				683CE4811C28FB8500F84399 /* Debug */,

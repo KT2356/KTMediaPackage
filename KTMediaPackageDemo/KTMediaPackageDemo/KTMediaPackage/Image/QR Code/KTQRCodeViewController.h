@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KTQRCodeViewController : UITableViewController
+typedef void(^ScanFinishBlock)(NSString *scanResult);
+@interface KTQRCodeViewController : UIViewController
+
+- (instancetype)initWithFinishBlock:(ScanFinishBlock)finishBlock;
+- (void)startScanning;
+- (void)stopScanning;
 
 @end
