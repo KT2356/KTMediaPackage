@@ -20,8 +20,14 @@
     self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     if (self) {
         [self addOverlay];
+        [self adddNavigationBar];
     }
     return self;
+}
+
+- (void)adddNavigationBar {
+    UINavigationBar *naviba = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 64)];
+    [self addSubview:naviba];
 }
 
 
@@ -37,14 +43,31 @@
         innerRect.origin.y    += (innerRect.size.height - minSize) / 2;
         innerRect.size.height = minSize;
     }
+    _overlay.path = [UIBezierPath bezierPathWithRoundedRect:innerRect cornerRadius:0].CGPath;
     
-    CGRect offsetRect = CGRectOffset(innerRect, 0, 15);
-    _overlay.path = [UIBezierPath bezierPathWithRoundedRect:offsetRect cornerRadius:0].CGPath;
+    [self addMaskViewWithRect:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, innerRect.origin.y-65)];
+    [self addMaskViewWithRect:CGRectMake(0, innerRect.origin.y + innerRect.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - innerRect.origin.y + innerRect.size.height )];
+    [self addMaskViewWithRect:CGRectMake(0, innerRect.origin.y-1, innerRect.origin.x, innerRect.size.height+1)];
+    [self addMaskViewWithRect:CGRectMake(innerRect.origin.x + innerRect.size.width, innerRect.origin.y-1, innerRect.origin.x, innerRect.size.height+1)];
+
+    [self.layer setNeedsDisplay];
+}
+
+- (void)addMaskViewWithRect:(CGRect)rect {
+    CALayer *mask = [[CALayer alloc] init];
+    mask.anchorPoint = CGPointMake(0, 0);
+    mask.backgroundColor = [UIColor blackColor].CGColor;
+    mask.bounds = rect;
+    mask.position = rect.origin;
+    mask.opacity = 0.5;
+    [self.layer addSublayer:mask];
+}
+
+- (void)addAnimationLine {
     
 }
 
 #pragma mark - Private Methods
-
 - (void)addOverlay {
     _overlay = [[CAShapeLayer alloc] init];
     _overlay.backgroundColor = [UIColor clearColor].CGColor;

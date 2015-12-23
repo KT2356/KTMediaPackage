@@ -33,7 +33,6 @@
         self.scanFinishBlock = finishBlock;
         [self setupAVComponents];
          self.modalPresentationStyle = UIModalPresentationFormSheet;
-        //[self.view addSubview:self.maskView];
         [self.maskView.layer insertSublayer:self.previewLayer atIndex:0];
     }
     return self;
@@ -77,7 +76,7 @@
         [_output setMetadataObjectTypes:@[ AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code ]];
         self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
         [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-        [_previewLayer setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        [_previewLayer setFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64)];
     }
 }
 
