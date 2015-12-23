@@ -7,13 +7,14 @@
 //
 
 #import "KTQRCodeViewController.h"
+#import "KTQRCodeMaskView.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface KTQRCodeViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property (copy, nonatomic) ScanFinishBlock scanFinishBlock;
 
-@property (strong, nonatomic) UIView *backView;
+@property (strong, nonatomic) KTQRCodeMaskView           *maskView;
 @property (strong, nonatomic) AVCaptureDevice            *device;
 @property (strong, nonatomic) AVCaptureDeviceInput       *input;
 @property (strong, nonatomic) AVCaptureMetadataOutput    *output;
@@ -31,10 +32,9 @@
         self.view.backgroundColor = [UIColor blackColor];
         self.scanFinishBlock = finishBlock;
         [self setupAVComponents];
-        [self configureDefaultComponents];
-        [self setupBackGroundView];
          self.modalPresentationStyle = UIModalPresentationFormSheet;
-        [_backView.layer insertSublayer:self.previewLayer atIndex:0];
+        //[self.view addSubview:self.maskView];
+        [self.maskView.layer insertSublayer:self.previewLayer atIndex:0];
     }
     return self;
 }
@@ -57,51 +57,35 @@
     }
 }
 
-#pragma mark - setup
-- (void)setupBackGroundView {
-    self.backView  = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                              0,
-                                                              [UIScreen mainScreen].bounds.size.width,
-                                                              [UIScreen mainScreen].bounds.size.height)];
-    _backView.translatesAutoresizingMaskIntoConstraints = NO;
-    _backView.clipsToBounds                             = YES;
-    [self.view addSubview:_backView];
-}
 
+#pragma mark - setup
 - (void)setupAVComponents {
     self.device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
     if (self.device) {
-        self.input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
-        self.output     = [[AVCaptureMetadataOutput alloc] init];
-        self.session            = [[AVCaptureSession alloc] init];
-        self.previewLayer       = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
+        self.input   = [AVCaptureDeviceInput deviceInputWithDevice:_device error:nil];
+        self.output  = [[AVCaptureMetadataOutput alloc] init];
+        self.session = [[AVCaptureSession alloc] init];
+        if ([self.session canAddInput:_input]) {
+            [_session addInput:_input];
+        }
+        if ([self.session canAddOutput:_output]) {
+            [_session addOutput:_output];
+        }
+        
+        [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+        
+        [_output setMetadataObjectTypes:@[ AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code ]];
+        self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
+        [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+        [_previewLayer setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     }
-}
-
-- (void)configureDefaultComponents {
-    [_session addOutput:_output];
-    
-    if (_device) {
-        [_session addInput:_input];
-    }
-    
-    [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    if ([[_output availableMetadataObjectTypes] containsObject:AVMetadataObjectTypeQRCode]) {
-        [_output setMetadataObjectTypes:@[ AVMetadataObjectTypeQRCode ]];
-    }
-    [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    [_previewLayer setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    
-    
 }
 
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     for(AVMetadataObject *current in metadataObjects) {
-        if ([current isKindOfClass:[AVMetadataMachineReadableCodeObject class]]
-            && [current.type isEqualToString:AVMetadataObjectTypeQRCode]) {
+        if ([current isKindOfClass:[AVMetadataMachineReadableCodeObject class]]) {
             NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *) current stringValue];
             if (self.scanFinishBlock) {
                 self.scanFinishBlock(scannedResult);
@@ -110,6 +94,18 @@
             break;
         }
     }
+}
+
+#pragma mark - setter/getter
+- (KTQRCodeMaskView *)maskView {
+    if (!_maskView) {
+        _maskView = [[KTQRCodeMaskView alloc] init];
+        _maskView.translatesAutoresizingMaskIntoConstraints = NO;
+        _maskView.clipsToBounds                             = YES;
+        [self.view addSubview:_maskView];
+    }
+    
+    return _maskView;
 }
 
 @end

@@ -14,6 +14,8 @@
 		683CE47C1C28FB8500F84399 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 683CE47B1C28FB8500F84399 /* Assets.xcassets */; };
 		683CE47F1C28FB8500F84399 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 683CE47D1C28FB8500F84399 /* LaunchScreen.storyboard */; };
 		683CE48D1C28FCA900F84399 /* KTQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */; };
+		683CE4931C293B3A00F84399 /* KTQRCodeMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE4921C293B3A00F84399 /* KTQRCodeMaskView.m */; };
+		683CE4A31C294F7200F84399 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 683CE4A21C294F7200F84399 /* CodeScan.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,9 @@
 		683CE4801C28FB8500F84399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		683CE48B1C28FCA900F84399 /* KTQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTQRCodeViewController.h; sourceTree = "<group>"; };
 		683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTQRCodeViewController.m; sourceTree = "<group>"; };
+		683CE4911C293B3A00F84399 /* KTQRCodeMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTQRCodeMaskView.h; sourceTree = "<group>"; };
+		683CE4921C293B3A00F84399 /* KTQRCodeMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTQRCodeMaskView.m; sourceTree = "<group>"; };
+		683CE4A21C294F7200F84399 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,9 @@
 			children = (
 				683CE48B1C28FCA900F84399 /* KTQRCodeViewController.h */,
 				683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */,
+				683CE4911C293B3A00F84399 /* KTQRCodeMaskView.h */,
+				683CE4921C293B3A00F84399 /* KTQRCodeMaskView.m */,
+				683CE4A21C294F7200F84399 /* CodeScan.bundle */,
 			);
 			path = "QR Code";
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				683CE4A31C294F7200F84399 /* CodeScan.bundle in Resources */,
 				683CE47F1C28FB8500F84399 /* LaunchScreen.storyboard in Resources */,
 				683CE47C1C28FB8500F84399 /* Assets.xcassets in Resources */,
 				683CE47A1C28FB8500F84399 /* Main.storyboard in Resources */,
@@ -195,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				683CE4771C28FB8500F84399 /* ViewController.m in Sources */,
+				683CE4931C293B3A00F84399 /* KTQRCodeMaskView.m in Sources */,
 				683CE4741C28FB8500F84399 /* AppDelegate.m in Sources */,
 				683CE4711C28FB8500F84399 /* main.m in Sources */,
 				683CE48D1C28FCA900F84399 /* KTQRCodeViewController.m in Sources */,
