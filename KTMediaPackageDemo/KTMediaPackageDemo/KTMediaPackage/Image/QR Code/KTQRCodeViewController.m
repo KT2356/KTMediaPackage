@@ -10,7 +10,7 @@
 #import "KTQRCodeMaskView.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface KTQRCodeViewController () <AVCaptureMetadataOutputObjectsDelegate>
+@interface KTQRCodeViewController () <AVCaptureMetadataOutputObjectsDelegate,KTQRCodeMaskViewDelegate>
 
 @property (copy, nonatomic) ScanFinishBlock scanFinishBlock;
 
@@ -88,11 +88,18 @@
             NSString *scannedResult = [(AVMetadataMachineReadableCodeObject *) current stringValue];
             if (self.scanFinishBlock) {
                 self.scanFinishBlock(scannedResult);
+                [self.maskView stopAnimation];
             }
             [self stopScanning];
             break;
         }
     }
+}
+
+#pragma mark - KTQRCodeMaskViewDelegate
+- (void)QRCodeMaskViewWillDiappear {
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 #pragma mark - setter/getter
@@ -101,6 +108,7 @@
         _maskView = [[KTQRCodeMaskView alloc] init];
         _maskView.translatesAutoresizingMaskIntoConstraints = NO;
         _maskView.clipsToBounds                             = YES;
+        _maskView.delegate = self;
         [self.view addSubview:_maskView];
     }
     

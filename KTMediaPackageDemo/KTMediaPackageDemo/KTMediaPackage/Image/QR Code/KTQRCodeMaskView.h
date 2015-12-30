@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KTQRCodeMaskView : UIView
+@protocol KTQRCodeMaskViewDelegate <NSObject>
+- (void)QRCodeMaskViewWillDiappear;
+@end
 
+@interface KTQRCodeMaskView : UIView
+@property (nonatomic, weak) id <KTQRCodeMaskViewDelegate> delegate;
+- (void)stopAnimation;
 @end
