@@ -5,8 +5,7 @@
 //  Created by KT on 15/12/22.
 //  Copyright © 2015年 KT. All rights reserved.
 //
-#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+
 #define kMaskCornerLineWidth 30
 #import "KTQRCodeMaskView.h"
 
@@ -19,6 +18,8 @@ typedef enum : NSUInteger {
 
 @interface KTQRCodeMaskView ()
 @property (nonatomic, strong) CALayer *imageLayer;
+@property (nonatomic, strong) CABasicAnimation *LineAnimation;
+@property (nonatomic, assign) NSTimeInterval timeStamp;
 
 @end
 
@@ -56,8 +57,8 @@ typedef enum : NSUInteger {
 }
 
 - (void)dismissScanner {
-    if ([self.delegate respondsToSelector:@selector(QRCodeMaskViewWillDiappear)]) {
-        [self.delegate QRCodeMaskViewWillDiappear];
+    if ([self.delegate respondsToSelector:@selector(KTQRCodeMaskViewWillDiappear)]) {
+        [self.delegate KTQRCodeMaskViewWillDiappear];
     }
 }
 
@@ -95,12 +96,13 @@ typedef enum : NSUInteger {
     rect = CGRectMake(0, 64 + center.x - lineLength, center.x - lineLength, SCREEN_HEIGHT - center.x + lineLength);
     [self drawMaskViewInContext:context withRect:rect];
     
-    rect = CGRectMake(0, SCREEN_WIDTH - center.x + lineLength,center.x - lineLength, SCREEN_HEIGHT - center.x + lineLength);
+    rect = CGRectMake(center.x + lineLength, 64 + center.x - lineLength ,center.x - lineLength, SCREEN_HEIGHT - 64 -center.x + lineLength);
     [self drawMaskViewInContext:context withRect:rect];
     
-    rect = CGRectMake(0, SCREEN_WIDTH, SCREEN_WIDTH,center.x - lineLength);
+    rect = CGRectMake(center.x - lineLength, 64 + center.x + lineLength, SCREEN_WIDTH - 2*(center.x - lineLength),SCREEN_HEIGHT - center.x - lineLength - 64);
     [self drawMaskViewInContext:context withRect:rect];
     
+    //
     CGPoint startP = CGPointMake(center.x - lineLength, 64 + center.x - lineLength);
     [self drawCornerWithStartPoint:startP inContext:context withPosition:TopLeft];
     
@@ -114,12 +116,16 @@ typedef enum : NSUInteger {
     [self drawCornerWithStartPoint:startP inContext:context withPosition:BottomRight];
     
     [self addAnimationLineInLayer:layer centerPoint:CGPointMake(center.x, 64 + center.x - lineLength) rectHeight:lineLength];
+    
+    [self drawTextLabelInLayer:layer WithString:@"将二维码/条码放入框内，即可自动扫描" inRect:CGRectMake(center.x - lineLength, center.x + 64 + lineLength + 10, lineLength * 2, 20) color:[UIColor whiteColor] fontSize:12.0f];
+    [self drawTextLabelInLayer:layer WithString:@"我的二维码" inRect:CGRectMake(center.x - 50, center.x + 64 + lineLength + 30, 100, 30) color:[UIColor greenColor] fontSize:14.0f];
+    
     layer.contents = (id)UIGraphicsGetImageFromCurrentImageContext().CGImage;
     UIGraphicsEndImageContext();
 }
 - (void)drawMaskViewInContext:(CGContextRef)context withRect:(CGRect)rect {
     CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-    CGContextSetAlpha(context, 0.5);
+    CGContextSetAlpha(context, 0.6);
     CGContextFillRect(context, rect);
 }
 
@@ -149,6 +155,11 @@ typedef enum : NSUInteger {
     [self.imageLayer removeFromSuperlayer];
 }
 
+- (void)startAnimation {
+    [self.imageLayer addAnimation:self.LineAnimation forKey:@"moveLineAnimation"];
+    [self.layer addSublayer:self.imageLayer];
+}
+
 
 - (void)addAnimationLineInLayer:(CALayer *)layer centerPoint:(CGPoint)center rectHeight:(float)lineLength{
     UIImage *image = [UIImage imageNamed:@"CodeScan.bundle/qrcode_Scan_weixin_Line@2x"];
@@ -163,9 +174,51 @@ typedef enum : NSUInteger {
     animation.duration            = 3.0f;
     animation.repeatCount         = FLT_MAX;
     animation.removedOnCompletion = NO;
+    self.LineAnimation = animation;
     // animation.fillMode            = kCAFillModeForwards;
-    [self.imageLayer addAnimation:animation forKey:@"moveLineAnimation"];
 }
+
+
+- (void)drawTextLabelInLayer:(CALayer *)layer
+                  WithString:(NSString *)string
+                      inRect:(CGRect)rect
+                       color:(UIColor *)color
+                    fontSize:(float)fontSize
+{
+    CATextLayer *textLayer = [CATextLayer layer];
+    
+    textLayer.contentsScale = [UIScreen mainScreen].scale;
+    textLayer.fontSize = fontSize;
+    textLayer.frame = rect;
+    textLayer.string = string;
+    textLayer.foregroundColor = color.CGColor;
+    textLayer.alignmentMode = @"center";
+    [layer addSublayer:textLayer];
+}
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    float lineLength = SCREEN_WIDTH *0.4;
+    CGPoint center = CGPointMake(SCREEN_WIDTH/2, 0);
+    if ([self pointIsInRect:point rect:CGRectMake(center.x - 50, center.x + 64 + lineLength + 30, 100, 30)]) {
+        if (event.timestamp != self.timeStamp) {
+            if ([self.delegate respondsToSelector:@selector(KTQRcodeDidClickedMyCode)]) {
+                [self.delegate KTQRcodeDidClickedMyCode];
+            }
+            self.timeStamp = event.timestamp;
+        }
+    }
+    return YES;
+}
+
+- (BOOL)pointIsInRect:(CGPoint)point rect:(CGRect)rect {
+    if (point.x >= rect.origin.x && point.x <= rect.origin.x + rect.size.width && point.y >= rect.origin.y && point.y <= rect.size.height + rect.origin.y) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+
 
 #pragma mark - setter/getter
 - (CALayer *)imageLayer {

@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
 
 @protocol KTQRCodeMaskViewDelegate <NSObject>
-- (void)QRCodeMaskViewWillDiappear;
+- (void)KTQRCodeMaskViewWillDiappear;
+- (void)KTQRcodeDidClickedMyCode;
 @end
 
 @interface KTQRCodeMaskView : UIView
 @property (nonatomic, weak) id <KTQRCodeMaskViewDelegate> delegate;
 - (void)stopAnimation;
+- (void)startAnimation;
 @end

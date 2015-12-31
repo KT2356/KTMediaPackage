@@ -31,9 +31,12 @@
     if (self) {
         self.view.backgroundColor = [UIColor blackColor];
         self.scanFinishBlock = finishBlock;
-        [self setupAVComponents];
-         self.modalPresentationStyle = UIModalPresentationFormSheet;
+        dispatch_queue_t queue= dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+        dispatch_async(queue, ^{
+            [self setupAVComponents];
+        });
         [self.maskView.layer insertSublayer:self.previewLayer atIndex:0];
+         self.modalPresentationStyle = UIModalPresentationFormSheet;
     }
     return self;
 }
@@ -47,6 +50,7 @@
 - (void)startScanning {
     if (![self.session isRunning]) {
         [self.session startRunning];
+        [self.maskView startAnimation];
     }
 }
 
@@ -74,6 +78,11 @@
         [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
         
         [_output setMetadataObjectTypes:@[ AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code ]];
+        //扫码区域
+        float lineLength = SCREEN_WIDTH *0.4;
+        CGPoint center = CGPointMake(SCREEN_WIDTH/2, 0);
+        [_output setRectOfInterest:CGRectMake ((center.x - lineLength + 64)/ SCREEN_HEIGHT ,(center.x - lineLength)/ SCREEN_WIDTH , (2*lineLength )/SCREEN_HEIGHT , (2*lineLength)/SCREEN_WIDTH )];
+        
         self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
         [_previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
         [_previewLayer setFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64)];
@@ -97,9 +106,14 @@
 }
 
 #pragma mark - KTQRCodeMaskViewDelegate
-- (void)QRCodeMaskViewWillDiappear {
+- (void)KTQRCodeMaskViewWillDiappear {
     [self dismissViewControllerAnimated:YES completion:^{
+        [self stopScanning];
     }];
+}
+
+- (void)KTQRcodeDidClickedMyCode {
+    NSLog(@"My Code");
 }
 
 #pragma mark - setter/getter

@@ -10,31 +10,29 @@
 #import "KTQRCodeViewController.h"
 
 @interface ViewController ()
-
+@property (nonatomic ,strong) KTQRCodeViewController *qrCode;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-        KTQRCodeViewController *qrCode = [[KTQRCodeViewController alloc] initWithFinishBlock:^(NSString *scanResult) {
-        NSLog(@"----%@",scanResult);
-    }];
-    
-    [qrCode startScanning];
-
-
-    [self presentViewController:qrCode animated:YES completion:nil];
-    
+- (IBAction)showQRCodel:(UIButton *)sender {
+    [self presentViewController:self.qrCode animated:YES completion:nil];
+    [self.qrCode startScanning];
 }
 
 
+
+- (KTQRCodeViewController *)qrCode {
+    if (!_qrCode) {
+        _qrCode = [[KTQRCodeViewController alloc] initWithFinishBlock:^(NSString *scanResult) {
+            NSLog(@"----%@",scanResult);
+        }];
+    }
+    return _qrCode;
+}
 
 @end
