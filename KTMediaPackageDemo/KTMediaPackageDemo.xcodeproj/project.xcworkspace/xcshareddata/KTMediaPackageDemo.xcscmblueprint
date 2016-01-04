@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BCCA9D419885518BE69076A628AA707C37977238",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D845E6D94417E6CD008D8D8D0DCAADEA79CFF98D" : 0,
+    "BCCA9D419885518BE69076A628AA707C37977238" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0514F9B6-B5C4-4C94-916F-8B2A6233C741",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D845E6D94417E6CD008D8D8D0DCAADEA79CFF98D" : "KTKitPackage\/",
+    "BCCA9D419885518BE69076A628AA707C37977238" : "KTMediaPackage\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "KTMediaPackageDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "KTMediaPackageDemo\/KTMediaPackageDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/KT2356\/KTMediaPackage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BCCA9D419885518BE69076A628AA707C37977238"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/KT2356\/KTKitPackage.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D845E6D94417E6CD008D8D8D0DCAADEA79CFF98D"
+    }
+  ]
+}

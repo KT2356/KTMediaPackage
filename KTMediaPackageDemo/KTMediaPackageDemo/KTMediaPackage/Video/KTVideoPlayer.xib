@@ -14,16 +14,23 @@
                 <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCg-M4-mWw">
                     <rect key="frame" x="0.0" y="125" width="320" height="35"/>
                     <subviews>
-                        <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsF-ul-CFd">
-                            <rect key="frame" x="8" y="3" width="46" height="30"/>
-                            <state key="normal" title="Play">
+                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsF-ul-CFd">
+                            <rect key="frame" x="10" y="1" width="34" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="34" id="VCc-5O-hlt"/>
+                            </constraints>
+                            <state key="normal" image="play48">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="disabled">
+                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="play48"/>
                             <connections>
                                 <action selector="playAction:" destination="t5Y-K1-zky" eventType="touchUpInside" id="1NX-eZ-3P8"/>
                             </connections>
                         </button>
-                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jTx-Nh-e27">
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jTx-Nh-e27">
                             <rect key="frame" x="59" y="14" width="206" height="2"/>
                         </progressView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00/03:13" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MF-tg-Y6d">
@@ -32,8 +39,11 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDW-BH-DVQ">
+                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDW-BH-DVQ">
                             <rect key="frame" x="272" y="4" width="46" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="4YJ-Ff-FL6"/>
+                            </constraints>
                             <state key="normal" title="Button">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -41,7 +51,7 @@
                                 <action selector="fullScreenAction:" destination="t5Y-K1-zky" eventType="touchUpInside" id="nMQ-Qg-2EF"/>
                             </connections>
                         </button>
-                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vkf-mV-ZOE">
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vkf-mV-ZOE">
                             <rect key="frame" x="57" y="-1" width="210" height="31"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -55,11 +65,24 @@
                     </subviews>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="jTx-Nh-e27" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="14" id="3dw-iy-c61"/>
+                        <constraint firstAttribute="trailing" secondItem="QDW-BH-DVQ" secondAttribute="trailing" constant="2" id="7QV-jN-fdy"/>
+                        <constraint firstAttribute="bottom" secondItem="PsF-ul-CFd" secondAttribute="bottom" id="EfN-ho-xFh"/>
+                        <constraint firstItem="vkf-mV-ZOE" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="-1" id="G7E-N4-4Nq"/>
+                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="vkf-mV-ZOE" secondAttribute="trailing" constant="7" id="K6a-YF-p0K"/>
+                        <constraint firstItem="PsF-ul-CFd" firstAttribute="leading" secondItem="xCg-M4-mWw" secondAttribute="leading" constant="10" id="NVl-cZ-nhP"/>
+                        <constraint firstItem="jTx-Nh-e27" firstAttribute="leading" secondItem="xCg-M4-mWw" secondAttribute="leading" constant="59" id="OTE-Ml-vzV"/>
+                        <constraint firstItem="vkf-mV-ZOE" firstAttribute="leading" secondItem="PsF-ul-CFd" secondAttribute="trailing" constant="15" id="gsW-Cf-5eI"/>
+                        <constraint firstAttribute="bottom" secondItem="QDW-BH-DVQ" secondAttribute="bottom" constant="1" id="ng9-IJ-RXc"/>
                         <constraint firstAttribute="height" constant="35" id="tc1-1x-cyv"/>
+                        <constraint firstItem="PsF-ul-CFd" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="1" id="vle-Ki-suN"/>
+                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="4" id="yh9-TK-EU4"/>
+                        <constraint firstAttribute="trailing" secondItem="jTx-Nh-e27" secondAttribute="trailing" constant="55" id="z9A-OY-VpS"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="xCg-M4-mWw" secondAttribute="bottom" id="VMK-57-73o"/>
                 <constraint firstAttribute="trailing" secondItem="xCg-M4-mWw" secondAttribute="trailing" id="l2X-XA-R4f"/>
@@ -70,11 +93,22 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="playBtn" destination="PsF-ul-CFd" id="4Wp-bW-73h"/>
                 <outlet property="progressBar" destination="jTx-Nh-e27" id="XDv-pb-KE9"/>
                 <outlet property="slider" destination="vkf-mV-ZOE" id="IhF-Jm-av0"/>
                 <outlet property="timeLabel" destination="5MF-tg-Y6d" id="S2u-2M-JEH"/>
+                <outlet property="toolView" destination="xCg-M4-mWw" id="6hm-vR-jiC"/>
+                <outletCollection property="gestureRecognizers" destination="Gvf-js-0UK" appends="YES" id="p6d-0g-huQ"/>
             </connections>
             <point key="canvasLocation" x="378" y="204"/>
         </view>
+        <tapGestureRecognizer id="Gvf-js-0UK">
+            <connections>
+                <action selector="didtappedBackground:" destination="t5Y-K1-zky" id="AcL-1m-5VT"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="play48" width="256" height="256"/>
+    </resources>
 </document>
