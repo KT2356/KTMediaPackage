@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "KTQRCodeViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<KTQRCodeDelegate>
 @property (nonatomic ,strong) KTQRCodeViewController *qrCode;
 @end
 
@@ -25,14 +25,19 @@
 }
 
 
-
+#pragma mark - QRCode
 - (KTQRCodeViewController *)qrCode {
     if (!_qrCode) {
         _qrCode = [[KTQRCodeViewController alloc] initWithFinishBlock:^(NSString *scanResult) {
             NSLog(@"----%@",scanResult);
         }];
+        _qrCode.delegate = self;
     }
     return _qrCode;
+}
+
+- (void)ktQRcodeDidClickMyCode {
+    NSLog(@"click my code");
 }
 
 @end

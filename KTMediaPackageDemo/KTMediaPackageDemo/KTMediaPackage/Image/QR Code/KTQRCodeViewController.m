@@ -116,7 +116,9 @@
 }
 
 - (void)KTQRcodeDidClickedMyCode {
-    NSLog(@"My Code");
+    if ([self.delegate respondsToSelector:@selector(ktQRcodeDidClickMyCode)]) {
+        [self.delegate ktQRcodeDidClickMyCode];
+    }
 }
 
 - (void)KTQRCodeUserDidChosenPicture:(UIImage *)image {
@@ -128,7 +130,9 @@
     NSArray *features        = [detector featuresInImage:ciImage];
     CIQRCodeFeature *feature = [features firstObject];
     NSString *result         = feature.messageString;
-    NSLog(@"%@",result);
+    if ([self.delegate respondsToSelector:@selector(ktQRCodeScanDidFinished:)]) {
+        [self.delegate ktQRCodeScanDidFinished:result];
+    }
 }
 
 #pragma mark - setter/getter
