@@ -24,21 +24,24 @@
 @end
 
 @implementation KTQRCodeViewController
-
+ 
 #pragma mark - life cycle
 - (instancetype)initWithFinishBlock:(ScanFinishBlock)finishBlock {
     self = [super init];
     if (self) {
         self.view.backgroundColor = [UIColor blackColor];
         self.scanFinishBlock = finishBlock;
-        dispatch_queue_t queue= dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
-        dispatch_async(queue, ^{
-            [self setupAVComponents];
-        });
+        
+        [self setupAVComponents];
+        
         [self.maskView.layer insertSublayer:self.previewLayer atIndex:0];
          self.modalPresentationStyle = UIModalPresentationFormSheet;
     }
     return self;
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self startScanning];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -114,6 +117,18 @@
 
 - (void)KTQRcodeDidClickedMyCode {
     NSLog(@"My Code");
+}
+
+- (void)KTQRCodeUserDidChosenPicture:(UIImage *)image {
+    CIContext *context = [CIContext contextWithOptions:nil];
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode
+                                              context:context
+                                              options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    CIImage *ciImage = [CIImage imageWithData:UIImageJPEGRepresentation(image, 0.5)];
+    NSArray *features        = [detector featuresInImage:ciImage];
+    CIQRCodeFeature *feature = [features firstObject];
+    NSString *result         = feature.messageString;
+    NSLog(@"%@",result);
 }
 
 #pragma mark - setter/getter

@@ -16,7 +16,7 @@ typedef enum : NSUInteger {
     BottomRight,
 } CornerPosition;
 
-@interface KTQRCodeMaskView ()
+@interface KTQRCodeMaskView ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) CALayer *imageLayer;
 @property (nonatomic, strong) CABasicAnimation *LineAnimation;
 @property (nonatomic, assign) NSTimeInterval timeStamp;
@@ -63,7 +63,40 @@ typedef enum : NSUInteger {
 }
 
 - (void)showAlbum {
-    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    [[self superViewController] presentViewController:picker animated:YES completion:nil];
+}
+
+#pragma mark - findViewController
+- (UIViewController*)superViewController {
+    UIResponder *responder = [self nextResponder];
+    while (responder) {
+        if ([responder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)responder;
+        }
+        responder = [responder nextResponder];
+    }
+    return nil;
+}
+
+
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    //修改imagePicker bar 的颜色
+    if([navigationController isKindOfClass:[UIImagePickerController class]]) {
+        // navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
+        navigationController.navigationBar.backgroundColor = self.window.rootViewController.navigationController.navigationBar.backgroundColor;
+    }
+}
+# pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController  *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *myimage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if ([self.delegate respondsToSelector:@selector(KTQRCodeUserDidChosenPicture:)]) {
+        [self.delegate KTQRCodeUserDidChosenPicture:myimage];
+    }
 }
 
 - (void)generateMaskView {

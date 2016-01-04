@@ -13,6 +13,7 @@
 @protocol KTQRCodeMaskViewDelegate <NSObject>
 - (void)KTQRCodeMaskViewWillDiappear;
 - (void)KTQRcodeDidClickedMyCode;
+- (void)KTQRCodeUserDidChosenPicture:(UIImage *)image;
 @end
 
 @interface KTQRCodeMaskView : UIView
