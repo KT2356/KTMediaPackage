@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,21 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avN-Sd-Rgw">
-                                <rect key="frame" x="93" y="83" width="134" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avN-Sd-Rgw">
+                                <rect key="frame" x="93" y="37" width="134" height="30"/>
                                 <state key="normal" title="QRCode"/>
                                 <connections>
                                     <action selector="showQRCodel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iXf-P8-TxS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cH8-Yd-0ej">
+                                <rect key="frame" x="93" y="114" width="134" height="30"/>
+                                <state key="normal" title="Video"/>
+                                <connections>
+                                    <action selector="showVideoPlayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g2w-os-keZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="avN-Sd-Rgw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="7dd-6S-J5r"/>
+                            <constraint firstItem="avN-Sd-Rgw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="77" id="8id-Ll-ufa"/>
+                            <constraint firstItem="cH8-Yd-0ej" firstAttribute="trailing" secondItem="avN-Sd-Rgw" secondAttribute="trailing" id="JcW-pg-CE8"/>
+                            <constraint firstItem="cH8-Yd-0ej" firstAttribute="leading" secondItem="avN-Sd-Rgw" secondAttribute="leading" id="JjO-dv-ade"/>
+                            <constraint firstItem="cH8-Yd-0ej" firstAttribute="top" secondItem="avN-Sd-Rgw" secondAttribute="bottom" constant="47" id="M5U-dS-pL2"/>
+                            <constraint firstItem="avN-Sd-Rgw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nu2-2C-EDw"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="202"/>
+            <point key="canvasLocation" x="314" y="177"/>
         </scene>
     </scenes>
 </document>

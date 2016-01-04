@@ -130,8 +130,8 @@
     NSArray *features        = [detector featuresInImage:ciImage];
     CIQRCodeFeature *feature = [features firstObject];
     NSString *result         = feature.messageString;
-    if ([self.delegate respondsToSelector:@selector(ktQRCodeScanDidFinished:)]) {
-        [self.delegate ktQRCodeScanDidFinished:result];
+    if (self.scanFinishBlock) {
+        self.scanFinishBlock(result);
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6817005C1C3A0F2400E28B40 /* KTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6817005B1C3A0F2400E28B40 /* KTVideoPlayer.m */; };
+		6817005E1C3A3CED00E28B40 /* KTVideoPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6817005D1C3A3CED00E28B40 /* KTVideoPlayer.xib */; };
 		683CE4711C28FB8500F84399 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE4701C28FB8500F84399 /* main.m */; };
 		683CE4741C28FB8500F84399 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE4731C28FB8500F84399 /* AppDelegate.m */; };
 		683CE4771C28FB8500F84399 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683CE4761C28FB8500F84399 /* ViewController.m */; };
@@ -19,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6817005A1C3A0F2400E28B40 /* KTVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KTVideoPlayer.h; path = ../../../../../KTKitPackage/KTKitPackageDemo/KTKitPackageDemo/KTVideoPlayer.h; sourceTree = "<group>"; };
+		6817005B1C3A0F2400E28B40 /* KTVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KTVideoPlayer.m; path = ../../../../../KTKitPackage/KTKitPackageDemo/KTKitPackageDemo/KTVideoPlayer.m; sourceTree = "<group>"; };
+		6817005D1C3A3CED00E28B40 /* KTVideoPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KTVideoPlayer.xib; sourceTree = "<group>"; };
 		683CE46C1C28FB8500F84399 /* KTMediaPackageDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KTMediaPackageDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		683CE4701C28FB8500F84399 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		683CE4721C28FB8500F84399 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,11 +106,11 @@
 		683CE4871C28FBAB00F84399 /* QR Code */ = {
 			isa = PBXGroup;
 			children = (
-				683CE48B1C28FCA900F84399 /* KTQRCodeViewController.h */,
-				683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */,
+				683CE4A21C294F7200F84399 /* CodeScan.bundle */,
 				683CE4911C293B3A00F84399 /* KTQRCodeMaskView.h */,
 				683CE4921C293B3A00F84399 /* KTQRCodeMaskView.m */,
-				683CE4A21C294F7200F84399 /* CodeScan.bundle */,
+				683CE48B1C28FCA900F84399 /* KTQRCodeViewController.h */,
+				683CE48C1C28FCA900F84399 /* KTQRCodeViewController.m */,
 			);
 			path = "QR Code";
 			sourceTree = "<group>";
@@ -113,6 +118,9 @@
 		683CE4881C28FBD900F84399 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				6817005A1C3A0F2400E28B40 /* KTVideoPlayer.h */,
+				6817005B1C3A0F2400E28B40 /* KTVideoPlayer.m */,
+				6817005D1C3A3CED00E28B40 /* KTVideoPlayer.xib */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -189,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6817005E1C3A3CED00E28B40 /* KTVideoPlayer.xib in Resources */,
 				683CE4A31C294F7200F84399 /* CodeScan.bundle in Resources */,
 				683CE47F1C28FB8500F84399 /* LaunchScreen.storyboard in Resources */,
 				683CE47C1C28FB8500F84399 /* Assets.xcassets in Resources */,
@@ -208,6 +217,7 @@
 				683CE4741C28FB8500F84399 /* AppDelegate.m in Sources */,
 				683CE4711C28FB8500F84399 /* main.m in Sources */,
 				683CE48D1C28FCA900F84399 /* KTQRCodeViewController.m in Sources */,
+				6817005C1C3A0F2400E28B40 /* KTVideoPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
