@@ -25,16 +25,20 @@
                             <state key="disabled">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <state key="selected" image="play48"/>
+                            <state key="selected" image="pause-3"/>
                             <connections>
                                 <action selector="playAction:" destination="t5Y-K1-zky" eventType="touchUpInside" id="1NX-eZ-3P8"/>
                             </connections>
                         </button>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jTx-Nh-e27">
-                            <rect key="frame" x="59" y="14" width="206" height="2"/>
+                            <rect key="frame" x="59" y="12" width="206" height="2"/>
                         </progressView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00/03:13" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MF-tg-Y6d">
-                            <rect key="frame" x="123" y="18" width="141" height="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--/--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MF-tg-Y6d">
+                            <rect key="frame" x="125" y="18" width="141" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="141" id="j6A-de-GPo"/>
+                                <constraint firstAttribute="height" constant="16" id="qoQ-25-Cjr"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -52,27 +56,30 @@
                             </connections>
                         </button>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vkf-mV-ZOE">
-                            <rect key="frame" x="57" y="-1" width="210" height="31"/>
+                            <rect key="frame" x="54" y="5" width="218" height="31"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="videoSlierChangeValue:" destination="t5Y-K1-zky" eventType="valueChanged" id="Lad-Sm-9ub"/>
-                                <action selector="videoSlierChangeValueEnd:" destination="t5Y-K1-zky" eventType="valueChanged" id="Urt-UP-PQd"/>
+                                <action selector="videoSlierChangeValueEnd:" destination="t5Y-K1-zky" eventType="touchUpInside" id="J60-DA-oiC"/>
+                                <action selector="videoSlierChangeValueEnd:" destination="t5Y-K1-zky" eventType="touchUpOutside" id="RFa-dp-eZG"/>
                             </connections>
                         </slider>
                     </subviews>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="jTx-Nh-e27" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="14" id="3dw-iy-c61"/>
+                        <constraint firstItem="jTx-Nh-e27" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="12" id="3dw-iy-c61"/>
                         <constraint firstAttribute="trailing" secondItem="QDW-BH-DVQ" secondAttribute="trailing" constant="2" id="7QV-jN-fdy"/>
                         <constraint firstAttribute="bottom" secondItem="PsF-ul-CFd" secondAttribute="bottom" id="EfN-ho-xFh"/>
-                        <constraint firstItem="vkf-mV-ZOE" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="-1" id="G7E-N4-4Nq"/>
-                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="vkf-mV-ZOE" secondAttribute="trailing" constant="7" id="K6a-YF-p0K"/>
+                        <constraint firstItem="vkf-mV-ZOE" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="5" id="G7E-N4-4Nq"/>
+                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="vkf-mV-ZOE" secondAttribute="trailing" constant="2" id="K6a-YF-p0K"/>
                         <constraint firstItem="PsF-ul-CFd" firstAttribute="leading" secondItem="xCg-M4-mWw" secondAttribute="leading" constant="10" id="NVl-cZ-nhP"/>
                         <constraint firstItem="jTx-Nh-e27" firstAttribute="leading" secondItem="xCg-M4-mWw" secondAttribute="leading" constant="59" id="OTE-Ml-vzV"/>
-                        <constraint firstItem="vkf-mV-ZOE" firstAttribute="leading" secondItem="PsF-ul-CFd" secondAttribute="trailing" constant="15" id="gsW-Cf-5eI"/>
+                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="5MF-tg-Y6d" secondAttribute="trailing" constant="6" id="ZF7-VB-3JH"/>
+                        <constraint firstItem="vkf-mV-ZOE" firstAttribute="leading" secondItem="PsF-ul-CFd" secondAttribute="trailing" constant="12" id="gsW-Cf-5eI"/>
+                        <constraint firstItem="5MF-tg-Y6d" firstAttribute="top" secondItem="jTx-Nh-e27" secondAttribute="bottom" constant="4" id="ibA-md-Abi"/>
                         <constraint firstAttribute="bottom" secondItem="QDW-BH-DVQ" secondAttribute="bottom" constant="1" id="ng9-IJ-RXc"/>
                         <constraint firstAttribute="height" constant="35" id="tc1-1x-cyv"/>
                         <constraint firstItem="PsF-ul-CFd" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="1" id="vle-Ki-suN"/>
@@ -109,6 +116,7 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="pause-3" width="32" height="32"/>
         <image name="play48" width="256" height="256"/>
     </resources>
 </document>

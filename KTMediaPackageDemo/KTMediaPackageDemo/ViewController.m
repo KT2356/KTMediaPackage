@@ -22,7 +22,7 @@
 
 - (IBAction)showVideoPlayer:(UIButton *)sender {
     NSString *urlString = @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
-    KTVideoPlayer *videoView = [[KTVideoPlayer alloc] initWithFrame:CGRectMake(0, 300, 320, 160) urlString:urlString];
+    KTVideoPlayer *videoView = [[KTVideoPlayer alloc] initWithFrame:CGRectMake(0, 200, [UIScreen mainScreen].bounds.size.width                                                                                                                                                                                                                                                                                                                                                                                                              , 212) urlString:urlString];
     
     [self.view addSubview:videoView];
 }
