@@ -11,6 +11,9 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qdo-Qd-AX1">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                </imageView>
                 <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xCg-M4-mWw">
                     <rect key="frame" x="0.0" y="125" width="320" height="35"/>
                     <subviews>
@@ -87,12 +90,21 @@
                         <constraint firstAttribute="trailing" secondItem="jTx-Nh-e27" secondAttribute="trailing" constant="55" id="z9A-OY-VpS"/>
                     </constraints>
                 </view>
+                <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MC2-El-HV8">
+                    <rect key="frame" x="142" y="61" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="xCg-M4-mWw" secondAttribute="trailing" id="B2g-cK-SR7"/>
                 <constraint firstAttribute="bottom" secondItem="xCg-M4-mWw" secondAttribute="bottom" id="Dvr-JF-nDw"/>
+                <constraint firstItem="qdo-Qd-AX1" firstAttribute="leading" secondItem="t5Y-K1-zky" secondAttribute="leading" id="I7J-xp-zMM"/>
+                <constraint firstAttribute="trailing" secondItem="qdo-Qd-AX1" secondAttribute="trailing" id="Ib1-1W-tz9"/>
+                <constraint firstItem="MC2-El-HV8" firstAttribute="centerX" secondItem="xCg-M4-mWw" secondAttribute="centerX" id="LMA-hn-uxj"/>
+                <constraint firstItem="qdo-Qd-AX1" firstAttribute="top" secondItem="t5Y-K1-zky" secondAttribute="top" id="jJM-Nl-tln"/>
+                <constraint firstItem="MC2-El-HV8" firstAttribute="centerY" secondItem="qdo-Qd-AX1" secondAttribute="centerY" id="sts-yM-VOT"/>
+                <constraint firstAttribute="bottom" secondItem="qdo-Qd-AX1" secondAttribute="bottom" id="uQi-wK-8bw"/>
                 <constraint firstItem="xCg-M4-mWw" firstAttribute="leading" secondItem="t5Y-K1-zky" secondAttribute="leading" id="xsF-3C-R2B"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -100,13 +112,15 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="loadingImageView" destination="qdo-Qd-AX1" id="wU2-cS-kqn"/>
                 <outlet property="playBtn" destination="PsF-ul-CFd" id="4Wp-bW-73h"/>
                 <outlet property="progressBar" destination="jTx-Nh-e27" id="XDv-pb-KE9"/>
                 <outlet property="slider" destination="vkf-mV-ZOE" id="IhF-Jm-av0"/>
+                <outlet property="spinner" destination="MC2-El-HV8" id="Fuc-p6-eQs"/>
                 <outlet property="timeLabel" destination="5MF-tg-Y6d" id="S2u-2M-JEH"/>
                 <outlet property="toolView" destination="xCg-M4-mWw" id="6hm-vR-jiC"/>
             </connections>
-            <point key="canvasLocation" x="378" y="204"/>
+            <point key="canvasLocation" x="422" y="204"/>
         </view>
     </objects>
     <resources>
