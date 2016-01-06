@@ -43,12 +43,12 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDW-BH-DVQ">
-                            <rect key="frame" x="272" y="4" width="46" height="30"/>
+                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDW-BH-DVQ">
+                            <rect key="frame" x="277" y="3" width="34" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="46" id="4YJ-Ff-FL6"/>
+                                <constraint firstAttribute="width" constant="34" id="4YJ-Ff-FL6"/>
                             </constraints>
-                            <state key="normal" title="Button">
+                            <state key="normal" title="Button" image="expand">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -71,19 +71,19 @@
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="jTx-Nh-e27" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="12" id="3dw-iy-c61"/>
-                        <constraint firstAttribute="trailing" secondItem="QDW-BH-DVQ" secondAttribute="trailing" constant="2" id="7QV-jN-fdy"/>
+                        <constraint firstAttribute="trailing" secondItem="QDW-BH-DVQ" secondAttribute="trailing" constant="9" id="7QV-jN-fdy"/>
                         <constraint firstAttribute="bottom" secondItem="PsF-ul-CFd" secondAttribute="bottom" id="EfN-ho-xFh"/>
                         <constraint firstItem="vkf-mV-ZOE" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="5" id="G7E-N4-4Nq"/>
-                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="vkf-mV-ZOE" secondAttribute="trailing" constant="2" id="K6a-YF-p0K"/>
+                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="vkf-mV-ZOE" secondAttribute="trailing" constant="7" id="K6a-YF-p0K"/>
                         <constraint firstItem="PsF-ul-CFd" firstAttribute="leading" secondItem="xCg-M4-mWw" secondAttribute="leading" constant="10" id="NVl-cZ-nhP"/>
                         <constraint firstItem="jTx-Nh-e27" firstAttribute="leading" secondItem="xCg-M4-mWw" secondAttribute="leading" constant="59" id="OTE-Ml-vzV"/>
-                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="5MF-tg-Y6d" secondAttribute="trailing" constant="6" id="ZF7-VB-3JH"/>
+                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="leading" secondItem="5MF-tg-Y6d" secondAttribute="trailing" constant="11" id="ZF7-VB-3JH"/>
                         <constraint firstItem="vkf-mV-ZOE" firstAttribute="leading" secondItem="PsF-ul-CFd" secondAttribute="trailing" constant="12" id="gsW-Cf-5eI"/>
                         <constraint firstItem="5MF-tg-Y6d" firstAttribute="top" secondItem="jTx-Nh-e27" secondAttribute="bottom" constant="4" id="ibA-md-Abi"/>
-                        <constraint firstAttribute="bottom" secondItem="QDW-BH-DVQ" secondAttribute="bottom" constant="1" id="ng9-IJ-RXc"/>
+                        <constraint firstAttribute="bottom" secondItem="QDW-BH-DVQ" secondAttribute="bottom" constant="2" id="ng9-IJ-RXc"/>
                         <constraint firstAttribute="height" constant="35" id="tc1-1x-cyv"/>
                         <constraint firstItem="PsF-ul-CFd" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="1" id="vle-Ki-suN"/>
-                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="4" id="yh9-TK-EU4"/>
+                        <constraint firstItem="QDW-BH-DVQ" firstAttribute="top" secondItem="xCg-M4-mWw" secondAttribute="top" constant="3" id="yh9-TK-EU4"/>
                         <constraint firstAttribute="trailing" secondItem="jTx-Nh-e27" secondAttribute="trailing" constant="55" id="z9A-OY-VpS"/>
                     </constraints>
                 </view>
@@ -91,8 +91,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="xCg-M4-mWw" secondAttribute="bottom" id="VMK-57-73o"/>
-                <constraint firstAttribute="trailing" secondItem="xCg-M4-mWw" secondAttribute="trailing" id="l2X-XA-R4f"/>
+                <constraint firstAttribute="trailing" secondItem="xCg-M4-mWw" secondAttribute="trailing" id="B2g-cK-SR7"/>
+                <constraint firstAttribute="bottom" secondItem="xCg-M4-mWw" secondAttribute="bottom" id="Dvr-JF-nDw"/>
                 <constraint firstItem="xCg-M4-mWw" firstAttribute="leading" secondItem="t5Y-K1-zky" secondAttribute="leading" id="xsF-3C-R2B"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -105,17 +105,12 @@
                 <outlet property="slider" destination="vkf-mV-ZOE" id="IhF-Jm-av0"/>
                 <outlet property="timeLabel" destination="5MF-tg-Y6d" id="S2u-2M-JEH"/>
                 <outlet property="toolView" destination="xCg-M4-mWw" id="6hm-vR-jiC"/>
-                <outletCollection property="gestureRecognizers" destination="Gvf-js-0UK" appends="YES" id="p6d-0g-huQ"/>
             </connections>
             <point key="canvasLocation" x="378" y="204"/>
         </view>
-        <tapGestureRecognizer id="Gvf-js-0UK">
-            <connections>
-                <action selector="didtappedBackground:" destination="t5Y-K1-zky" id="AcL-1m-5VT"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="expand" width="256" height="256"/>
         <image name="pause-3" width="32" height="32"/>
         <image name="play48" width="256" height="256"/>
     </resources>

@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "play90.png"
+      "filename" : "expand.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "play90@2x.png",
+      "filename" : "expand@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "play90@3x.png"
+      "filename" : "expand@3x.png"
     }
   ],
   "info" : {

@@ -10,8 +10,12 @@
 #import "KTQRCodeViewController.h"
 #import "KTVideoPlayer.h"
 
-@interface ViewController ()<KTQRCodeDelegate>
+@interface ViewController ()<KTQRCodeDelegate,KTVideoPlayerDelegate>
+{
+
+}
 @property (nonatomic ,strong) KTQRCodeViewController *qrCode;
+@property (nonatomic) BOOL needShowStatusBar;
 @end
 
 @implementation ViewController
@@ -20,11 +24,21 @@
     [super viewDidLoad];
 }
 
+#pragma mark - VideoPlayer
 - (IBAction)showVideoPlayer:(UIButton *)sender {
     NSString *urlString = @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
-    KTVideoPlayer *videoView = [[KTVideoPlayer alloc] initWithFrame:CGRectMake(0, 200, [UIScreen mainScreen].bounds.size.width                                                                                                                                                                                                                                                                                                                                                                                                              , 212) urlString:urlString];
-    
+    KTVideoPlayer *videoView = [[KTVideoPlayer alloc] initWithFrame:CGRectMake(0, 200, [UIScreen mainScreen].bounds.size.width, 200) urlString:urlString];
+    videoView.delegate = self;
     [self.view addSubview:videoView];
+}
+
+- (void)KTVideoPlayerDidRotateToLandscape:(BOOL)isLandscape {
+    _needShowStatusBar = isLandscape;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return _needShowStatusBar;
 }
 
 #pragma mark - QRCode
